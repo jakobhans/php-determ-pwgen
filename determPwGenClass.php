@@ -17,12 +17,15 @@ class determPwGen
 
     function generateHash() {
         if (isset($this->salt) && isset($this->site_label) && isset($this->username)) {
-            $i = 0;
-            $string = $this->salt . $this->site_label . $this->username;
+            $string = $this->site_label . $this->username;
             $hash = '';
-            while($i <= $this->rounds) {
-                // Hash string
+            for ($i = 0; $i <= $this->rounds; $i++) {
+                $hash = md5($this->salt . $string);
+                $string = $hash;
             }
+            return $hash;
+        } else {
+            return FALSE;
         }
     }
 }
