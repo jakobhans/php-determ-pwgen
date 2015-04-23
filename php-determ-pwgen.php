@@ -5,7 +5,6 @@ include_once('determPwGenClass.php');
 fwrite(STDOUT, "php-determ-pwgen\n");
 fwrite(STDOUT, "A deterministic password generator in PHP\n");
 fwrite(STDOUT, "By jakobhans (https://github.com/jakobhans/php-determ-pwgen). Version 1.0\n");
-fwrite(STDOUT, "Inspired by determ-pwgen by I3ck (https://github.com/I3ck/determ-pwgen). Same logic is used, no code has been reused.\n\n\n");
 fwrite(STDOUT, "This piece of software works hashing your username and site label with a salt (a password) you will be using every time you want to retrieve the same generated password for the same username and site label.\n");
 fwrite(STDOUT, "Follow the instructions to generate your password.\n\n");
 
