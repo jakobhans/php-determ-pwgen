@@ -1,6 +1,6 @@
 <?php
 
-include_once('determPwGenClass.php');
+include_once('DeterministicPasswordGeneratorClass.php');
 
 fwrite(STDOUT, "php-determ-pwgen\n");
 fwrite(STDOUT, "A deterministic password generator in PHP\n");
@@ -18,9 +18,9 @@ fwrite(STDOUT, "\nEnter the number of rounds you want the password to be hashed.
 $rounds = intval(fgets(STDIN));
 
 
-$pwd_object = new determPwGen($rounds, $salt);
+$pwd_object = new DeterministicPasswordGenerator($salt, $rounds);
 
-$site_pwd = $pwd_object->generateHash($site_label, $username);
+$site_pwd = $pwd_object->generateHash($siteLabel, $username);
 
 fwrite(STDOUT, "\n\nYour password for " . $site_label . "\n" . $site_pwd . "\n");
 
