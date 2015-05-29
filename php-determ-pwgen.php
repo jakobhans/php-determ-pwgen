@@ -11,7 +11,7 @@ fwrite(STDOUT, "Follow the instructions to generate your password.\n\n");
 fwrite(STDOUT, "Enter the salt for the password generation:\n");
 $salt = fgets(STDIN);
 fwrite(STDOUT, "\nEnter a label for the site of the account:\n");
-$site_label = fgets(STDIN);
+$siteLabel = fgets(STDIN);
 fwrite(STDOUT, "\nEnter the username of the account:\n");
 $username = fgets(STDIN);
 fwrite(STDOUT, "\nEnter the number of rounds you want the password to be hashed. Defaults to 1000 if you don't input a value.\n");

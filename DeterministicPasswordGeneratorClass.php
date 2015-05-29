@@ -7,7 +7,7 @@ class DeterministicPasswordGenerator
     private $siteLabel;
     private $username;
 
-    DEFAULT_ROUNDS = 1000;
+    const DEFAULT_ROUNDS = 1000;
 
     function __construct($salt, $rounds = NULL)
     {
@@ -24,10 +24,11 @@ class DeterministicPasswordGenerator
         if (isset($this->salt) && isset($siteLabel) && isset($username)) {
             $string = $this->salt . $siteLabel . $username;
             $hash = '';
+            $i = 0;
             do {
                 $hash = hash('sha256', $hash . $string);
                 $string = $hash;
-            } while ($i++ < $this->rounds)
+            } while ($i++ < $this->rounds);
             return $hash;
         } else {
             return FALSE;
