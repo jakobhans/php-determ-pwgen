@@ -18,9 +18,9 @@ fwrite(STDOUT, "\nEnter the number of rounds you want the password to be hashed.
 $rounds = intval(fgets(STDIN));
 
 
-$pwd_object = new determPwGen($rounds, $salt, $site_label, $username);
+$pwd_object = new determPwGen($rounds, $salt);
 
-$site_pwd = $pwd_object->generateHash();
+$site_pwd = $pwd_object->generateHash($site_label, $username);
 
 fwrite(STDOUT, "\n\nYour password for " . $site_label . "\n" . $site_pwd . "\n");
 

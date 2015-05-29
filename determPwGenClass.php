@@ -7,22 +7,20 @@ class determPwGen
     private $site_label;
     private $username;
 
-    function __construct($rounds = 1000, $salt, $site_label, $username)
+    function __construct($rounds = 1000, $salt)
     {
         $this->rounds = $rounds;
         $this->salt = $salt;
-        $this->site_label = $site_label;
-        $this->username = $username;
     } 
 
-    function generateHash() {
-        if (isset($this->salt) && isset($this->site_label) && isset($this->username)) {
-            $string = $this->salt . $this->site_label . $this->username;
+    function generateHash($site_label, $username) {
+        if (isset($this->salt) && isset($site_label) && isset($username)) {
+            $string = $this->salt . $site_label . $username;
             $hash = '';
-            for ($i = 0; $i <= $this->rounds; $i++) {
-                $hash = hash('sha256', $string);
+            do {
+                $hash = hash('sha256', $hash . $string);
                 $string = $hash;
-            }
+            } while ($i++ < $this->rounds)
             return $hash;
         } else {
             return FALSE;
