@@ -22,6 +22,6 @@ $pwd_object = new DeterministicPasswordGenerator($salt, $rounds);
 
 $site_pwd = $pwd_object->generateHash($siteLabel, $username);
 
-fwrite(STDOUT, "\n\nYour password for " $username . " at " . $siteLabel . "\n" . $site_pwd . "\n\n");
+fwrite(STDOUT, "\n\nYour password for " . $username . " at " . $siteLabel . "\n" . $site_pwd . "\n\n");
 
 ?>
