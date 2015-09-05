@@ -18,7 +18,7 @@ class DeterministicPasswordGenerator
         } else {
             $this->rounds = $rounds;
         }
-    } 
+    }
 
     function generateHash($siteLabel, $username) {
         if (isset($this->salt) && isset($siteLabel) && isset($username)) {
